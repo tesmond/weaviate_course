@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "weaviate-course"
+version = "0.1.0"
+description = "Repo for weaviate learning course"
+authors = [{name = "Andrew Gill", email = "tesmond@gmail.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["weaviate", "vector-database", "ml", "course", "tutorial"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Education",
+]
+dependencies = [
+    "pandas>=2.3.3",
+    "requests>=2.32.5",
+    "tqdm>=4.67.1",
+    "weaviate-client>=4.18.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0,<8",
+  "isort>=5.12,<6",
+  "ruff>=0.1.0,<1",
+  "mypy>=1.10,<2",
+  "pre-commit>=3.0,<4",
+  "jupyter>=1.0,<2",
+  "mkdocs>=1.5,<2",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["weaviate_course"]
+
+[tool.mypy]
+python_version = 3.11
+warn_unused_configs = true
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+select = [
+  "E",    # pycodestyle errors
+  "W",    # pycodestyle warnings
+  "F",    # pyflakes
+  "I",    # isort
+  "C",    # flake8-comprehensions
+  "B",    # flake8-bugbear
+]
+
+[tool.ruff.isort]
+profile = "black"
