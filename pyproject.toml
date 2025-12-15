@@ -17,6 +17,8 @@ classifiers = [
   "Topic :: Education",
 ]
 dependencies = [
+    "cohere>=5.20.0",
+    "ollama>=0.6.1",
     "pandas>=2.3.3",
     "requests>=2.32.5",
     "tqdm>=4.67.1",
